@@ -49,6 +49,7 @@ def inv_4x4(A):
                                [A41, A42, A43, A44]])
     return A_inv
 
+# TODO might not need this
 def matmul_4d(A, x):
     """Implements A @ x for A dim (4,4) and x dim (4,1)"""
     assert A.shape == (4,4), "Wrong shape for matrix A, cannot multiply"
