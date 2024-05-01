@@ -1,6 +1,7 @@
 import numpy as np
 
 
+# Math from https://semath.info/src/inverse-cofactor-ex4.html
 def inv_4x4(A):
     """Returns inverse of 4x4 matrix A"""
     assert A.shape == (4,4), "Wrong shape for matrix A, cannot invert"

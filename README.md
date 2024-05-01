@@ -1,5 +1,27 @@
 # Swing-up Control of the Acrobot
 
+TODO project description
+
+## What's in the box?
+TODO File descriptions
+
+## Requirements
+- ffmpeg (for generating animation)
+- YAPSS
+
+### Installing ffmpeg
+MacOSX does not ship with ffmpeg installed by default. The easiest way to get ffmpeg is via Homebrew:
+
+```bash
+brew install ffmpeg
+```
+
+If on Linux, similarly use apt:
+
+```bash
+sudo apt install ffmpeg
+```
+
 ## Notes
 - Casadi doesn't support np.linalg.inv
 - YAPSS doesn't support multiplying a numpy array by a float
