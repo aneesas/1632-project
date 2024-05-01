@@ -1,11 +1,9 @@
 import numpy as np
 
+
 def inv_4x4(A):
     """Returns inverse of 4x4 matrix A"""
     assert A.shape == (4,4), "Wrong shape for matrix A, cannot invert"
-
-    det = np.linalg.det(A)
-    assert det != 0, "Singular matrix!"
 
     # Original matrix elements
     a11 = A[0, 0]
@@ -25,6 +23,17 @@ def inv_4x4(A):
     a43 = A[3, 2]
     a44 = A[3, 3]
 
+    # Determinant
+    det = a11*a22*a33*a44 + a11*a23*a34*a42 + a11*a24*a32*a43 \
+        - a11*a24*a33*a42 - a11*a23*a32*a44 - a11*a22*a34*a43 \
+        - a12*a21*a33*a44 - a13*a21*a34*a42 - a14*a21*a32*a43 \
+        + a14*a21*a33*a42 + a13*a21*a32*a44 + a12*a21*a34*a43 \
+        + a12*a23*a31*a44 + a13*a24*a31*a42 + a14*a22*a31*a43 \
+        - a14*a23*a31*a42 - a13*a22*a31*a44 - a12*a24*a31*a43 \
+        - a12*a23*a34*a41 - a13*a24*a32*a41 - a14*a22*a33*a41 \
+        + a14*a23*a32*a41 + a13*a22*a34*a41 + a12*a24*a33*a41
+    assert det != 0, "Singular matrix!"
+
     # Adjugate matrix
     A11 = a22*a33*a44 + a23*a34*a42 + a24*a32*a43 - a24*a33*a42 - a23*a32*a44 - a22*a34*a43
     A12 = -a12*a33*a44 - a13*a34*a42 - a14*a32*a43 + a14*a33*a42 + a13*a32*a44 + a12*a34*a43
@@ -43,10 +52,29 @@ def inv_4x4(A):
     A43 = -a11*a22*a43 - a12*a23*a41 - a13*a21*a42 + a13*a22*a41 + a12*a21*a43 + a11*a23*a42
     A44 = a11*a22*a33 + a12*a23*a31 + a13*a21*a32 - a13*a22*a31 - a12*a21*a33 - a11*a23*a32
 
-    A_inv = 1./det * np.array([[A11, A12, A13, A14],
-                               [A21, A22, A23, A24],
-                               [A31, A32, A33, A34],
-                               [A41, A42, A43, A44]])
+    # Divide all the elements by determinant, which we have to do individually because YAPSS
+    # doesn't support multiplying a numpy array by a float
+    A11 = A11 / det
+    A12 = A12 / det
+    A13 = A13 / det
+    A14 = A14 / det
+    A21 = A21 / det
+    A22 = A22 / det
+    A23 = A23 / det
+    A24 = A24 / det
+    A31 = A31 / det
+    A32 = A32 / det
+    A33 = A33 / det
+    A34 = A34 / det
+    A41 = A41 / det
+    A42 = A42 / det
+    A43 = A43 / det
+    A44 = A44 / det
+
+    A_inv = np.array([[A11, A12, A13, A14],
+                      [A21, A22, A23, A24],
+                      [A31, A32, A33, A34],
+                      [A41, A42, A43, A44]])
     return A_inv
 
 # TODO might not need this
