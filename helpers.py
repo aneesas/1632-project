@@ -78,19 +78,6 @@ def inv_4x4(A):
                       [A41, A42, A43, A44]])
     return A_inv
 
-# TODO might not need this
-def matmul_4d(A, x):
-    """Implements A @ x for A dim (4,4) and x dim (4,1)"""
-    assert A.shape == (4,4), "Wrong shape for matrix A, cannot multiply"
-    assert x.shape == (4,1) or x.shape == (4,), "Wrong shape for vector x, cannot multiply"
-
-    b = np.zeros((4, 1))
-    b[0] = A[0, 0] * x[0] + A[0, 1] * x[1] + A[0, 2] * x[2] + A[0, 3] * x[3]
-    b[1] = A[1, 0] * x[0] + A[1, 1] * x[1] + A[1, 2] * x[2] + A[1, 3] * x[3]
-    b[2] = A[2, 0] * x[0] + A[2, 1] * x[1] + A[2, 2] * x[2] + A[2, 3] * x[3]
-    b[3] = A[3, 0] * x[0] + A[3, 1] * x[1] + A[3, 2] * x[2] + A[3, 3] * x[3]
-
-    return b
 
 if __name__ == "__main__":
     print("Testing inv_4x4...")
