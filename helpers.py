@@ -1,6 +1,20 @@
 import numpy as np
 
 
+def inv_2x2(A):
+    """Returns inverse of 2x2 matrix A"""
+    assert A.shape == (2, 2), "Wrong shape for matrix A, cannot invert"
+
+    a11 = A[0,0]
+    a12 = A[0, 1]
+    a21 = A[1, 0]
+    a22 = A[1,1]
+
+    det = a22 * a11 - a12 * a21
+    assert det != 0, "Singular matrix!"
+    return np.array([[a22/det, -a12/det],
+                     [-a21/det, a11/det]])
+
 # Math from https://semath.info/src/inverse-cofactor-ex4.html
 def inv_4x4(A):
     """Returns inverse of 4x4 matrix A"""
