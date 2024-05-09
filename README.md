@@ -1,6 +1,6 @@
 # Swing-up Control of the Acrobot
 
-This repository contains code to find an optimal controller for the acrobot swing-up problem using pseudospectral methods.
+This repository contains code to find an optimal controller for the acrobot swing-up problem using pseudospectral methods. To learn more about the acrobot, please see the references at the bottom of the project notebook.
 
 ## Contents
 All of the project code lives in the iPython notebook titled `acrobot.ipynb`. There is explanatory text within the notebook describing each section's purpose. The core of the optimization is in the function `acrobot_swing_up`, which takes in boundary conditions and references to dynamics and cost functions (for which multiple options are defined in the notebook).
