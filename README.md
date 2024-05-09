@@ -3,7 +3,7 @@
 TODO project description
 
 ## What's included?
-All of the project code lives in the iPython notebook titled `acrobot.ipynb`. There is explanatory text within the notebook describing each section's purpose.
+All of the project code lives in the iPython notebook titled `acrobot.ipynb`. There is explanatory text within the notebook describing each section's purpose. The core of the optimization is in the function `acrobot_swing_up`, which takes in boundary conditions and references to dynamics and cost functions (for which multiple options are defined in the notebook).
 
 ## Requirements
 Required packages found on [PyPI](https://pypi.org/) are listed in `requirements.txt` and can be installed via `pip` or similar. Additionally, the following tools are needed to run the included iPython notebook:
