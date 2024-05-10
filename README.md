@@ -1,5 +1,7 @@
 # Swing-up Control of the Acrobot
 
+(Source: https://github.com/aneesas/1632-project)
+
 This repository contains code to find an optimal controller for the acrobot swing-up problem using pseudospectral methods. To learn more about the acrobot, please see the references at the bottom of the project notebook.
 
 ## Contents
